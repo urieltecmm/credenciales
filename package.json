@@ -14,6 +14,7 @@
     "express": "^5.1.0",
     "fs": "^0.0.1-security",
     "handlebars": "^4.7.8",
+    "https": "^1.0.0",
     "mysql2": "^3.14.2"
   }
 }

@@ -4,13 +4,13 @@ const dotenv = require("dotenv");
 
 const mysql = require("mysql2/promise");
 
+const https = require("https");
 const fs = require('fs');
 const handlebars = require('handlebars');
 
 dotenv.config();
 
 const app = express();
-const port = 3000;
 
 app.use(express.static('public'));
 app.use(bodyParser.json()) 
@@ -65,6 +65,18 @@ app.get('/validarCredencial/:id', async (req, res) => {});
 
 
 // Iniciar el servidor
-app.listen(process.env.PORT, () => {
-    console.log(`Servidor escuchando en http://localhost:${port}`);
+if(process.env.ENV === 'produccion'){
+    const privateKey  = fs.readFileSync(process.env.private_key, 'utf8');
+    const ca = fs.readFileSync(process.env.ca, 'utf8');
+    const certificate = fs.readFileSync(process.env.certificate, 'utf8');
+
+    const credentials = { key: privateKey, ca: ca, cert: certificate };
+    const https_server = https.createServer( credentials, app );
+
+    https_server.listen( process.env.PORT , () => { console.log('servidor corriendo en el puerto: ', process.env.PORT); });
+
+}else{
+    app.listen(process.env.PORT, () => {
+    console.log(`Servidor escuchando en http://localhost:${process.env.PORT}`);
 });
+}
