@@ -47,11 +47,6 @@ app.get('/validarCredencial/:id', async (req, res) => {
 
         const template = handlebars.compile(source);
         const htmlToSend = template(replacements);
-
-        console.log(htmlToSend);
-        
-        console.log(alumno);
-        //res.sendFile('./views/plantilla.html', {root: __dirname })
         res.send(htmlToSend);
     }catch(error){
         console.log(err);
