@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credencial</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f8f8f8; color: #333; }
+        .container { max-width: 960px; margin: 0 auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #007bff; text-align: center; margin-bottom: 30px; }
+        .footer { margin-top: 40px; text-align: center; font-size: 0.8em; color: #777; border-top: 1px solid #eee; padding-top: 20px; }
+        .logo {display: block; width: 40%; margin: auto;}
+        .vigente {font-weight: bold; color: #28a745; font-size: 1.1em;}
+        .baja {font-weight: bold; color: #a72828; font-size: 1.1em;}
+        .contenedor {border: 1px solid #ddd; border-radius: 8px; padding: 15px; background-color: #f9f9f9; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin:auto}
+        .contenedor p {text-align: center;}
+        .container h2 {text-align: center;}
+    </style>
+</head>
+<body>
+    <div class="container">
+    <img src="/logoTSJ.svg" class="logo"/>
+
+    <div style="margin-top: 50px;">
+        <div class="contenedor">
+            <h2>{{nombre}}</h2>
+            <p>{{no_control}}</p>
+            <p>{{carrera}}</p>
+            <p>{{semestre}}</p>
+            <p>{{unidad}}</p>
+            <p class="{{tipo}}">{{status}}</p>
+        </div>
+    </div>
+    <div class="footer">
+        Técnologico Súperior de Jalisco
+    </div>
+</body>
+</html>
